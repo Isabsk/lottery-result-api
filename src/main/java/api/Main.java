@@ -10,16 +10,12 @@ public class Main {
     private static final String API_KEY = System.getenv("LOTTO_API_KEY");
 
     public static void main(String[] args) {
-        Javalin app = Javalin.create();
-
-        app.before(ctx -> {
-            ctx.header("Access-Control-Allow-Origin", "*");
-            ctx.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            ctx.header("Access-Control-Allow-Headers", "Content-Type, x-api-key");
-        });
-
-        app.options("/*", ctx -> {
-            ctx.status(204);
+        Javalin app = Javalin.create(config -> {
+            config.bundledPlugins.enableCors(cors -> {
+                cors.addRule(it -> {
+                    it.anyHost();
+                });
+            });
         });
 
         app.before(ctx -> checkApiKey(ctx));
@@ -41,7 +37,7 @@ public class Main {
     }
 
     private static void checkApiKey(Context ctx) {
-        String apiKey = ctx.header("x-api-key");
+        String apiKey = ctx.queryParam("apiKey");
 
         if (apiKey == null || !apiKey.equals(API_KEY)) {
             throw new io.javalin.http.HttpResponseException(401, "Unauthorized: Invalid or missing API Key");
