@@ -5,7 +5,7 @@
 	"build_path": "./target",
 	"stack": "java17",
 	"env_variables": {
-		"LOTTO_API_KEY": "API123"
+		"LOTTO_API_KEY": "LOTTO_LIVE_API_7F9X2P1Q"
 	},
 	"memory": 256,
 	"scripts": {},

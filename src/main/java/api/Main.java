@@ -10,7 +10,6 @@ public class Main {
     private static final String API_KEY = System.getenv("LOTTO_API_KEY");
 
     public static void main(String[] args) {
-        System.out.println(System.getenv("API_KEY"));
         Javalin app = Javalin.create();
 
         app.before(ctx -> {
