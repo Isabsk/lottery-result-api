@@ -15,7 +15,7 @@ public class Main {
         app.before(ctx -> {
             ctx.header("Access-Control-Allow-Origin", "*");
             ctx.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            ctx.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            ctx.header("Access-Control-Allow-Headers", "Content-Type, x-api-key");
         });
 
         app.options("/*", ctx -> {
