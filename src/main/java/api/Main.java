@@ -5,7 +5,7 @@ import api.handlers.Check;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
-public class App {
+public class Main {
 
     private static final String API_KEY = System.getenv("API_KEY");
 
