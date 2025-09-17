@@ -1,0 +1,13 @@
+{
+	"runtime": "java17",
+	"port": 7070,
+	"command": "java -jar lottery-result-api-1.0-SNAPSHOT.jar",
+	"build_path": "./target",
+	"stack": "java17",
+	"env_variables": {
+		"LOTTO_API_KEY": "API123"
+	},
+	"memory": 256,
+	"scripts": {},
+	"platform": "javase"
+}
