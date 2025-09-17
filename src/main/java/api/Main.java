@@ -18,11 +18,11 @@ public class Main {
             ctx.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
         });
 
-        app.before(ctx -> checkApiKey(ctx));
-        
         app.options("/*", ctx -> {
             ctx.status(204);
         });
+
+        app.before(ctx -> checkApiKey(ctx));
 
         app.get("/", ctx -> ctx.json("Lotto Checker API is running."));
 
